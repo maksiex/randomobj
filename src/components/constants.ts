@@ -1,0 +1,1 @@
+export const weatherUrl = 'localhost:3000/getWeather';

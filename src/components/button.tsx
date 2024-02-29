@@ -1,9 +1,14 @@
 import React from "react";
 
-export const Button = () => {
+interface IButton {
+    onClick: () => void;
+    title: string;
+}
+
+export const Button = ({ onClick, title }:IButton) => {
     return (
-        <button>
-            Refresh
+        <button onClick={onClick}>
+            {title}
         </button>
     )
 }
