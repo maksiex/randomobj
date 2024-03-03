@@ -7,8 +7,8 @@ interface IButton {
 
 export const Button = ({ onClick, title }:IButton) => {
     return (
-        <button onClick={onClick}>
+        <button className={'button'} onClick={onClick}>
             {title}
         </button>
     )
-}
+};

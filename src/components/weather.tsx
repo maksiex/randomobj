@@ -1,12 +1,10 @@
 import React from "react";
+import { Form } from "./form";
 
-interface IWeather {
-    weather: string;
-};
-export const Weather = ({weather}: IWeather) => {
+export const Weather = () => {
     return (
-        <div>
-            {weather}
+        <div className={'weather'}>
+            <Form />
         </div>
     )
 }
