@@ -7,8 +7,9 @@ import { Text } from "./Text";
 
 export const Form = () => {
     const [inputValue, setInputValue] = useState('');
-    const [weatherData, setWeatherData] = useState<IWeatherData | null>();
+    const [weatherData, setWeatherData] = useState<IWeatherData>();
     const [isLoading, setIsLoading] = useState(false);
+    const { main, wind, weather, error } = weatherData || {};
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.target.value);
@@ -32,15 +33,20 @@ export const Form = () => {
                 <input className={'input'} type="text" value={inputValue} onChange={handleInputChange}/>
                 <Button onClick={handleSubmit} title={'Get weather'}/>
             </div>
-            {isLoading && <div>Loading...</div>}
-            {weatherData &&
+            {isLoading && <div className="loader"></div>}
+            {weatherData && !error && !isLoading &&
                 <div className={'data-container'}>
-                    <Text text={`Temperature: ${weatherData.main.temp.toFixed(1)} °C`} />
-                    <Text text={`Feels like: ${weatherData.main.feels_like.toFixed(1)} °C`} />
-                    <Text text={`Wind speed: ${weatherData.wind.speed} m/s`} />
-                    <Text text={`${weatherData.weather[0].description}`} />
+                    <Text text={`Temperature: ${main?.temp.toFixed(1)} °C`} />
+                    <Text text={`Feels like: ${main?.feels_like.toFixed(1)} °C`} />
+                    <Text text={`Wind speed: ${wind?.speed} m/s`} />
+                    {weather?.map((el, index) => (
+                        <Text key={index} text={el.description} />
+                    ))}
                  </div>
             }
+            {error && <div className={'error'}>
+                <Text text={'Failed to receive data, check the correct city name and try again'} />
+            </div>}
         </div>
     )
 };

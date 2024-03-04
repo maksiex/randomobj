@@ -51,4 +51,5 @@ export interface IWeatherData {
     id: number;
     name: string;
     cod: number;
+    error?: string;
 }

@@ -10,6 +10,5 @@ export const postCity = async (city: string, url: string) => {
         return await response.json();
     } catch (error) {
         console.error('Error:', error);
-        return null;
     }
 };
