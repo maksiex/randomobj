@@ -1,1 +1,0 @@
-export const weatherUrl = 'http://localhost:3333/weather';
