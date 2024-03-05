@@ -1,10 +1,10 @@
 import React from "react";
-import { Weather } from "./weather";
+import {Weather} from "./Weather";
 
 export const Container = () => {
     return (
         <div className={'container'}>
-            <Weather/>
+            <Weather />
         </div>
     )
 };

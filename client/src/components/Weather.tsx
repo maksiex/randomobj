@@ -5,7 +5,7 @@ import { weatherUrl } from "./constants";
 import { IWeatherData } from "./types";
 import { Text } from "./Text";
 
-export const Form = () => {
+export const Weather = () => {
     const [inputValue, setInputValue] = useState('');
     const [weatherData, setWeatherData] = useState<IWeatherData>();
     const [isLoading, setIsLoading] = useState(false);

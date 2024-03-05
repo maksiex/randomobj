@@ -24,8 +24,8 @@ body {
 
 .container {
   background-color: white;
-  width: 600px;
   min-height: 200px;
+  width: 460px;
   padding: 16px;
   opacity: 0.8;
   border: 1px solid gray;
@@ -36,11 +36,37 @@ body {
   box-shadow: rgba(0, 0, 0, 0.07) 0 1px 2px, rgba(0, 0, 0, 0.07) 0 2px 4px, rgba(0, 0, 0, 0.07) 0 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0 16px 32px, rgba(0, 0, 0, 0.07) 0 32px 64px;
 }
 
+.form {
+  width: 90%;
+  padding: 16px;
+  margin: 8px auto;
+  display: flex;
+}
+
+  @media  (max-width: 480px) {
+    .form {
+      flex-direction: column;
+      gap: 12px;
+    }
+    .container {
+      width: 360px;
+    }
+    body {
+      align-items: start;
+    }
+  }
+  @media (min-width: 481px) {
+    .form {
+      flex-direction: row;
+      justify-content: space-between;
+      gap: 16px;
+    }
+  }
+
 .input {
-  height: 32px;
+  min-height: 32px;
   border: 1px solid lightgray;
   border-radius: 4px;
-  width: 100%;
   font-size: inherit;
   color: #282323;
   padding: 8px;
@@ -51,13 +77,8 @@ body {
   outline: none;
 }
 
-.form {
-  display: flex;
-  gap: 8px;
-  justify-content: space-between;
-}
-
 .button {
+  min-height: 50px;
   background-color: #3838d9;
   color: #ffffff;
   border: 1px solid lightgray;
